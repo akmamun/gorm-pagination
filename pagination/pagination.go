@@ -41,6 +41,9 @@ func Paginate(param *Param, resultData interface{}) *Result {
 	} else {
 		offset = param.Offset
 	}
+	
+	if err := param.Query; err == nil {param.Query = ""
+					  }
 	db.Offset(int(offset)).
 		Limit(int(param.Limit)).
 		Order(param.OrderBy).
