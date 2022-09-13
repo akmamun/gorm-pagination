@@ -2,16 +2,18 @@ gorm-pagination
 
 ## Usage
 ```shell
-go get github.com/akmamun/gorm-pagination
+go get github.com/akmamun/gormpagination
 ```
 
 ```go
-type User struct {
-	ID       int
-	UserName string `gorm:"not null;size:100;unique"`
+type Example struct {
+Id        int        `json:"id"`
+Data      string     `json:"data" binding:"required"`
+CreatedAt *time.Time `json:"created_at,string,omitempty"`
+UpdatedAt *time.Time `json:"updated_at,string,omitempty"`
 }
 
-var example []User
+var example []Example
 db = db.Where("id > ?", 0)
 pagination.Paginate(&pagination.Param{
 DB:      db,
