@@ -2,7 +2,7 @@ gorm-pagination
 
 ## Usage
 ```shell
-go get github.com/akmamun/gormpagination
+go get github.com/akmamun/gorm-pagination
 ```
 
 ```go
