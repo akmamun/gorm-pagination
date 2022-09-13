@@ -1,0 +1,4 @@
+package gorm_pagination
+
+// current Version
+const Version = "v0.0.1"

@@ -1,4 +1,4 @@
-package gorm_pagination
+package pagination
 
 import (
 	"gorm.io/gorm"
@@ -10,7 +10,7 @@ type Param struct {
 	Offset  int64
 	Limit   int64
 	OrderBy string
-	Query   string
+	Query   interface{}
 }
 
 type Result struct {
@@ -44,6 +44,7 @@ func Paginate(param *Param, resultData interface{}) *Result {
 	db.Offset(int(offset)).
 		Limit(int(param.Limit)).
 		Order(param.OrderBy).
+		Where(param.Query).
 		Find(resultData)
 
 	<-done
