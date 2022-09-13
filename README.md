@@ -1,9 +1,11 @@
-gorm-pagination
+# gorm-pagination
 
-## Usage
+## Installation 
 ```shell
 go get github.com/akmamun/gorm-pagination/pagination
 ```
+
+## Usage Example 
 - Example 1
 ```go
     type Example struct {
