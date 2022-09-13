@@ -1,4 +1,4 @@
-module github.com/akmamun/gorm-pagination
+module examples
 
 go 1.18
 
