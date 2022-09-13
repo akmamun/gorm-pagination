@@ -1,4 +1,4 @@
-module examples
+module gorm_pagination
 
 go 1.18
 
