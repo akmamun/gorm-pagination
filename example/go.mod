@@ -1,4 +1,4 @@
-module examples
+module example
 
 go 1.18
 

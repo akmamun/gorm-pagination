@@ -17,7 +17,7 @@ func main() {
 	var example Example
 	insertedData := Example{Data: "data"}
 
-	db, err := gorm.Open("sqlite3", "examples.db")
+	db, err := gorm.Open("sqlite3", "example.db")
 
 	if err != nil {
 		db.AutoMigrate(&example)
