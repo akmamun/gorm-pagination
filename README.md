@@ -16,9 +16,9 @@ go get github.com/akmamun/gorm-pagination/pagination
     }
 
     var example []Example
-    db = db.Where("id > ?", 0)
+     
     pagination.Paginate(&pagination.Param{
-    DB:      db,
+    DB:      *gorm.DB,
     Limit:   limit,
     Offset:  offset,
     OrderBy: "id ASC",
@@ -35,11 +35,12 @@ go get github.com/akmamun/gorm-pagination/pagination
 
     var example []Example
 
-    pagination.Paginate(&pagination.Param{
-    DB:      db,
-    Limit:   limit,
-    Offset:  offset,
-    OrderBy: "id ASC",
-    Query : Example{Id:1}
+    data := pagination.Paginate(&pagination.Param{
+            DB:      *gorm.DB,
+            Limit:   limit,
+            Offset:  offset,
+            OrderBy: "id ASC",
+            Query : Example{Id:1}
     }, &example)
 ```
+### Credit https://github.com/hellokaton/gorm-paginator
