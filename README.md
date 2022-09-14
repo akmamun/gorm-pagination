@@ -43,4 +43,26 @@ go get github.com/akmamun/gorm-pagination/pagination
             Query : Example{Id:1}
     }, &example)
 ```
+### Pagination View
+- Input Params `limit` and `offset`
+- Example Url `localhost:8000/test?limit=1&offset=1`
+- Output Format
+```json
+{
+  "total_record": 17,
+  "total_page": 17,
+  "offset": 1,
+  "limit": 1,
+  "prev_page": 1,
+  "next_page": 2,
+  "results": [
+    {
+      "id": 2,
+      "data": "this is test data",
+      "created_at": "2022-09-13T17:42:36.358116Z",
+      "updated_at": "2022-09-13T17:42:36.358116Z"
+    }
+  ]
+}
+```
 ### Credit https://github.com/hellokaton/gorm-paginator
