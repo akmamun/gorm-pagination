@@ -1,4 +1,5 @@
 # gorm-pagination
+ Gorm Pagination library
 
 ## Installation 
 ```shell
