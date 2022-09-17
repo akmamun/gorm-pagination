@@ -74,7 +74,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/akmamun/gorm-pagination/pagination"
+	"github.com/akmamun/gorm-pagination"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
