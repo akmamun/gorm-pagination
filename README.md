@@ -3,7 +3,7 @@
 
 ## Installation 
 ```shell
-go get github.com/akmamun/gorm-pagination/pagination
+go get github.com/akmamun/gorm-pagination
 ```
 
 ## Usage Example 
