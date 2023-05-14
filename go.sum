@@ -1,3 +1,5 @@
+github.com/akmamun/gorm-pagination/pagination v0.0.0-20220917091236-fc4c1ceca5b2 h1:2SLiIAT+e9Xz9TnLRAq7YHUv2J2rb3ltR6i+ALuRrCU=
+github.com/akmamun/gorm-pagination/pagination v0.0.0-20220917091236-fc4c1ceca5b2/go.mod h1:523voSxJvSCIRPdnZ6jhex3kAGr7F1by25Tt7s6cPcw=
 github.com/jinzhu/inflection v1.0.0 h1:K317FqzuhWc8YvSVlFMCCUb36O/S9MCKRDI7QkRKD/E=
 github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc=
 github.com/jinzhu/now v1.1.5 h1:/o9tlHleP7gOFmsnYNz3RGnqzefHA47wQpKrrdTIwXQ=

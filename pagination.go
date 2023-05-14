@@ -24,6 +24,7 @@ func Paginate[T any](limit, offset int64, db *gorm.DB) (*Result[T], error) {
 		limit = 10
 	}
 
+	db.Count(&count)
 	err := db.
 		Limit(int(limit)).
 		Offset(int(offset)).
