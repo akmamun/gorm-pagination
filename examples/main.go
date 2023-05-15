@@ -32,14 +32,18 @@ func main() {
 
 	db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
 
-
 	if err != nil {
 		fmt.Println("db connection close")
 	} else {
 		autoMigration()
 	}
-	query: = db.Model(&example).Where("id = ?", 1)
-	data, err := pagination.Paginate[Example](*query, limit, Offset)
+
+	var example Example
+	limit := 10
+	offset := 0
+
+	query := db.Model(&example).Where("id = ?", 1)
+	data, err := pagination.Paginate[Example](query, limit, offset)
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(&data)

@@ -15,9 +15,10 @@ go get github.com/akmamun/gorm-pagination
     CreatedAt *time.Time `json:"created_at,string,omitempty"`
     UpdatedAt *time.Time `json:"updated_at,string,omitempty"`
     }
-
+	
+    var example Example
     query := db.Model(&example)
-    data, err := pagination.Paginate[Example](*query, limit, Offset)
+    data, err := pagination.Paginate[Example](query, limit, Offset)
 
 ```
 - Example 2
@@ -28,9 +29,10 @@ go get github.com/akmamun/gorm-pagination
     CreatedAt *time.Time `json:"created_at,string,omitempty"`
     UpdatedAt *time.Time `json:"updated_at,string,omitempty"`
     }
-
+    
+	var example Example
     query := db.Model(&example).Where("id = ?", 1)
-    data, err := pagination.Paginate[Example](*query, limit, Offset)
+    data, err := pagination.Paginate[Example](query, limit, Offset)
 
 ```
 ### Pagination View
@@ -88,8 +90,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	
+	var example Example
 	query := db.Model(&example).Where("id = ?", 1)
-        data, err := pagination.Paginate[Example](*query, limit, Offset)
+        data, err := pagination.Paginate[Example](query, limit, Offset)
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(&data)
