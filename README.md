@@ -89,7 +89,7 @@ func main() {
 		return
 	}
 	query := db.Model(&example).Where("id = ?", 1)
-  data, err := pagination.Paginate[Example](*query, limit, Offset)
+        data, err := pagination.Paginate[Example](*query, limit, Offset)
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(&data)
