@@ -2,9 +2,7 @@ module github.com/akmamun/gorm-pagination
 
 go 1.18
 
-require (
-	gorm.io/gorm v1.24.7-0.20230306060331-85eaf9eeda11
-)
+require gorm.io/gorm v1.24.7-0.20230306060331-85eaf9eeda11
 
 require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
