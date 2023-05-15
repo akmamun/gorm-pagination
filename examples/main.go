@@ -14,28 +14,40 @@ type Example struct {
 	Data string `json:"data" binding:"required"`
 }
 
-func main() {
+var example Example
+
+func autoMigration() {
+	db.AutoMigrate(&example)
+
+}
+func insertedData() {
+	insertedData := Example{Data: "data"}
+	db.Create(&insertedData)
+	fmt.Println("Inserted Data!")
+
+}
+func getData() {
 	var example Example
+	insertedData := Example{Data: "data"}
+	db.Create(&insertedData)
+	fmt.Println("Inserted Data!")
+
+}
+func main() {
 	insertedData := Example{Data: "data"}
 
 	db, err := gorm.Open(sqlite.Open("gorm.db"), &gorm.Config{})
 
-	if err == nil {
-		db.AutoMigrate(&example)
-		db.Create(&insertedData)
-		fmt.Println("Inserted!")
+
+	if err != nil {
+		fmt.Println("db connection close")
 	} else {
-		fmt.Println(err)
-		return
+		autoMigration()
 	}
-	ex := pagination.Paginate(&pagination.Param{
-		DB:      db,
-		Limit:   10,
-		Offset:  1,
-		OrderBy: "id ASC",
-	}, &example)
+	query = db.Model(&example).Where("id = ?", 1)
+	data, err := pagination.Paginate[Example](*query, limit, Offset)
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(&ex)
+	json.NewEncoder(w).Encode(&data)
 
 }

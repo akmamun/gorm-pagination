@@ -18,12 +18,7 @@ go get github.com/akmamun/gorm-pagination
 
     var example []Example
      
-    pagination.Paginate(&pagination.Param{
-    DB:      *gorm.DB,
-    Limit:   limit,
-    Offset:  offset,
-    OrderBy: "id ASC",
-    }, &example)
+    pagination.Paginate[Example](*gorm.DB, limit, Offset)
 ```
 - Example 2
 ```go
@@ -34,15 +29,8 @@ go get github.com/akmamun/gorm-pagination
     UpdatedAt *time.Time `json:"updated_at,string,omitempty"`
     }
 
-    var example []Example
+    data, err := pagination.Paginate[Example](*gorm.DB, limit, Offset)
 
-    data := pagination.Paginate(&pagination.Param{
-            DB:      *gorm.DB,
-            Limit:   limit,
-            Offset:  offset,
-            OrderBy: "id ASC",
-            Query : Example{Id:1}
-    }, &example)
 ```
 ### Pagination View
 - Input Params `limit` and `offset`
@@ -74,7 +62,8 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/akmamun/gorm-pagination"
+	"github.com/akmamun/gorm-pagination"  
+
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -98,15 +87,11 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	ex := pagination.Paginate(&pagination.Param{
-		DB:      db,
-		Limit:   10,
-		Offset:  1,
-		OrderBy: "id ASC",
-	}, &example)
+  db.Model()
+  data, err := pagination.Paginate[Example](*gorm.DB, limit, Offset)
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(&ex)
+	json.NewEncoder(w).Encode(&data)
 }
 ```
 ### Credit https://github.com/hellokaton/gorm-paginator
