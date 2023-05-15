@@ -26,13 +26,7 @@ func insertedData() {
 	fmt.Println("Inserted Data!")
 
 }
-func getData() {
-	var example Example
-	insertedData := Example{Data: "data"}
-	db.Create(&insertedData)
-	fmt.Println("Inserted Data!")
 
-}
 func main() {
 	insertedData := Example{Data: "data"}
 
@@ -44,7 +38,7 @@ func main() {
 	} else {
 		autoMigration()
 	}
-	query = db.Model(&example).Where("id = ?", 1)
+	query: = db.Model(&example).Where("id = ?", 1)
 	data, err := pagination.Paginate[Example](*query, limit, Offset)
 
 	w.Header().Set("Content-Type", "application/json")
