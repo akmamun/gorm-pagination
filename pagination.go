@@ -15,7 +15,7 @@ type Result[T any] struct {
 	Results     []T   `json:"results"`
 }
 
-func Paginate[T any](limit, offset int64, db *gorm.DB) (*Result[T], error) {
+func Paginate[T any](db *gorm.DB, limit, offset int64) (*Result[T], error) {
 	var result Result[T]
 	var data []T
 	var count int64
